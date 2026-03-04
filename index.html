@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <meta name="description" content="Generate QR codes from URLs with customizable styles. Download as SVG or PNG. Free, private, no tracking.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-content">
+      <img src="" alt="Morpheus Logo" class="header-logo" id="header-logo">
+      <h1 class="header-title">QR Code Generator</h1>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <!-- URL Input Section -->
+    <div class="input-section">
+      <label for="url-input" class="form-label">Enter URL or Text</label>
+      <input type="text" id="url-input" class="form-input" placeholder="https://example.com" autocomplete="off">
+    </div>
+
+    <!-- Configuration Panel -->
+    <div id="config-panel" class="config-panel">
+      <h2 class="config-title">Configuration</h2>
+      <div class="config-grid">
+        <!-- Dot Shape -->
+        <div class="form-group">
+          <label for="dot-shape" class="form-label">Dot Shape</label>
+          <select id="dot-shape" class="form-select">
+            <option value="rounded" selected>Rounded</option>
+            <option value="dots">Dots (Circles)</option>
+            <option value="square">Square (Classic)</option>
+            <option value="extra-rounded">Extra Rounded</option>
+            <option value="classy">Classy</option>
+            <option value="classy-rounded">Classy Rounded</option>
+          </select>
+        </div>
+
+        <!-- Corner Style -->
+        <div class="form-group">
+          <label for="corner-shape" class="form-label">Corner Style</label>
+          <select id="corner-shape" class="form-select">
+            <option value="extra-rounded" selected>Extra Rounded</option>
+            <option value="dot">Dot</option>
+            <option value="square">Square</option>
+          </select>
+        </div>
+
+        <!-- Logo Mode -->
+        <div class="form-group">
+          <label for="logo-mode" class="form-label">Center Logo</label>
+          <select id="logo-mode" class="form-select">
+            <option value="none" selected>None</option>
+            <option value="morpheus">Morpheus Logo</option>
+            <option value="custom">Upload Custom...</option>
+          </select>
+          <input type="file" id="logo-upload" accept="image/png,image/svg+xml,image/jpeg" hidden>
+        </div>
+
+        <!-- Download Size -->
+        <div class="form-group">
+          <label for="download-size" class="form-label">Download Size (px)</label>
+          <select id="download-size" class="form-select">
+            <option value="256">256 x 256</option>
+            <option value="512">512 x 512</option>
+            <option value="1024" selected>1024 x 1024</option>
+            <option value="2048">2048 x 2048</option>
+            <option value="4096">4096 x 4096</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Preview -->
+    <div class="qr-section">
+      <div id="qr-preview" class="qr-preview" aria-live="polite">
+        <!-- QR code gets appended here by JS -->
+        <p id="qr-placeholder" class="qr-placeholder" role="status">Enter a URL above to generate a QR code</p>
+      </div>
+    </div>
+
+    <!-- Download Buttons -->
+    <div id="download-buttons" class="download-buttons hidden">
+      <button id="btn-download-svg" class="btn btn-primary" aria-label="Download QR code as SVG">
+        Download SVG
+      </button>
+      <button id="btn-download-png" class="btn btn-primary" aria-label="Download QR code as PNG">
+        Download PNG
+      </button>
+    </div>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

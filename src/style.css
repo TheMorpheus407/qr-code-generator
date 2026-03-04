@@ -1,0 +1,410 @@
+/* ==========================================================================
+   QR Code Generator — Stylesheet
+   Design system: LinuxChooser brand
+   Fonts loaded via @fontsource in JS — do NOT import fonts here.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors — backgrounds */
+  --bg-primary: #0d0d11;
+  --bg-card: #1a1a1f;
+  --bg-input: #18181c;
+  --bg-hover: #2a2a32;
+
+  /* Colors — text */
+  --text-primary: #f0f2f5;
+  --text-secondary: #d0d2d5;
+  --text-muted: #9a9ca0;
+
+  /* Colors — accent */
+  --accent-purple: #6c35de;
+  --accent-orange: #ff6b35;
+  --accent-gradient: linear-gradient(135deg, #6c35de 0%, #ff6b35 100%);
+
+  /* Colors — borders & glow */
+  --border: rgba(240, 242, 245, 0.1);
+  --border-focus: rgba(108, 53, 222, 0.5);
+  --accent-glow: rgba(108, 53, 222, 0.3);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(108, 53, 222, 0.3);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   CSS Reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.app-header {
+  background-color: rgba(21, 21, 25, 0.85);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 600px;
+  padding: 0 var(--space-xl);
+}
+
+.header-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.header-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.5rem;
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Main Content
+   -------------------------------------------------------------------------- */
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+/* --------------------------------------------------------------------------
+   Input Section
+   -------------------------------------------------------------------------- */
+.input-section {
+  margin-bottom: var(--space-xl);
+}
+
+.form-label {
+  display: block;
+  color: var(--text-muted);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+.form-input {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow);
+}
+
+/* --------------------------------------------------------------------------
+   Config Panel
+   -------------------------------------------------------------------------- */
+.config-panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.config-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Form Groups
+   -------------------------------------------------------------------------- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Form Select
+   -------------------------------------------------------------------------- */
+.form-select {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  padding-right: 2.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+
+  /* Custom dropdown arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239a9ca0' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px 8px;
+}
+
+.form-select:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow);
+}
+
+.form-select option {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   File Input (dark-themed)
+   -------------------------------------------------------------------------- */
+input[type="file"] {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+input[type="file"]:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow);
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-md);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-right: var(--space-sm);
+  transition: opacity var(--transition-fast);
+}
+
+input[type="file"]::file-selector-button:hover {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   QR Section
+   -------------------------------------------------------------------------- */
+.qr-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+}
+
+.qr-preview {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  min-width: 280px;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.qr-preview svg,
+.qr-preview canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.qr-placeholder {
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* --------------------------------------------------------------------------
+   Download Buttons
+   -------------------------------------------------------------------------- */
+.download-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.btn {
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-full);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+  border: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(108, 53, 222, 0.5);
+  transform: scale(1.02);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* --------------------------------------------------------------------------
+   Utility — Hidden
+   -------------------------------------------------------------------------- */
+.hidden {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Mobile (<600px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 599px) {
+  .main-content {
+    padding: var(--space-md);
+  }
+
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+  }
+
+  .download-buttons .btn {
+    width: 100%;
+  }
+
+  .header-content {
+    padding: 0 var(--space-md);
+  }
+
+  .header-title {
+    font-size: 1.25rem;
+  }
+
+  .qr-preview {
+    min-width: 240px;
+    min-height: 240px;
+  }
+}

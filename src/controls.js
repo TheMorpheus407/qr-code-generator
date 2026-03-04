@@ -53,6 +53,34 @@ export function initControls(onChange, moLogoUrl) {
   logoUpload.addEventListener('cancel', () => {
     logoMode.value = 'none'
   })
+
+  // Color pickers
+  const colorStart = document.getElementById('color-start')
+  const colorEnd = document.getElementById('color-end')
+  const colorStartHex = document.getElementById('color-start-hex')
+  const colorEndHex = document.getElementById('color-end-hex')
+
+  function onColorChange() {
+    colorStartHex.textContent = colorStart.value
+    colorEndHex.textContent = colorEnd.value
+    onChange({
+      dotsOptions: {
+        gradient: {
+          type: 'linear',
+          rotation: 135 * (Math.PI / 180),
+          colorStops: [
+            { offset: 0, color: colorStart.value },
+            { offset: 1, color: colorEnd.value },
+          ],
+        },
+      },
+      cornersSquareOptions: { color: colorStart.value },
+      cornersDotOptions: { color: colorStart.value },
+    })
+  }
+
+  colorStart.addEventListener('input', onColorChange)
+  colorEnd.addEventListener('input', onColorChange)
 }
 
 export function getDownloadSize() {

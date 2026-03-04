@@ -291,6 +291,56 @@ input[type="file"]::file-selector-button:hover {
 }
 
 /* --------------------------------------------------------------------------
+   Color Input
+   -------------------------------------------------------------------------- */
+.color-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.form-color {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 48px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-input);
+  cursor: pointer;
+  padding: 2px;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.form-color:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow);
+  outline: none;
+}
+
+.form-color::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.form-color::-webkit-color-swatch {
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.form-color::-moz-color-swatch {
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.color-hex {
+  font-family: 'Roboto', monospace;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  min-width: 5rem;
+}
+
+/* --------------------------------------------------------------------------
    QR Section
    -------------------------------------------------------------------------- */
 .qr-section {

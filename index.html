@@ -11,7 +11,7 @@
   <!-- HEADER -->
   <header class="app-header">
     <div class="header-content">
-      <img src="" alt="Morpheus Logo" class="header-logo" id="header-logo">
+      <img src="/mo-logo.png" alt="Morpheus Logo" class="header-logo" id="header-logo">
       <h1 class="header-title">QR Code Generator</h1>
     </div>
   </header>
@@ -72,6 +72,24 @@
             <option value="2048">2048 x 2048</option>
             <option value="4096">4096 x 4096</option>
           </select>
+        </div>
+
+        <!-- Color 1 (Gradient Start) -->
+        <div class="form-group">
+          <label for="color-start" class="form-label">Color 1</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="color-start" class="form-color" value="#6c35de">
+            <span class="color-hex" id="color-start-hex">#6c35de</span>
+          </div>
+        </div>
+
+        <!-- Color 2 (Gradient End) -->
+        <div class="form-group">
+          <label for="color-end" class="form-label">Color 2</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="color-end" class="form-color" value="#ff6b35">
+            <span class="color-hex" id="color-end-hex">#ff6b35</span>
+          </div>
         </div>
       </div>
     </div>
